@@ -1,11 +1,7 @@
-name: Demo Workflow   # Workflow name
+name: Demo Workflow 2  # Workflow name
 
-on: 
- push:             # Trigger (runs on push)
-  branches: 
-  - dev1
-  paths: 
-   - "sample.txt"
+on:
+  workflow_dispatch
 
 jobs:
   build:              # Job name
