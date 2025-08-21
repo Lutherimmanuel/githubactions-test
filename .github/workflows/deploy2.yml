@@ -23,7 +23,7 @@ jobs:
 
       - name: set-username
         id: set-username
-        run: echo "username=${{ github.event.inputs.username }}" >> $GITHUB_OUTPUT
+        run: echo "username=${{ github.event.inputs.username }}" 
 
   show-user:
     needs: create-user
