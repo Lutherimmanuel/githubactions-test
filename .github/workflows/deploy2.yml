@@ -3,7 +3,7 @@ name: Demo Workflow 2   # Workflow name
 on: 
  push:             # Trigger (runs on push)
   branches: 
-  - dev1
+  - main
 
 jobs:
   build:              # Job name
