@@ -3,13 +3,13 @@ name: Demo Workflow   # Workflow name
 on: 
  push:             # Trigger (runs on push)
   branches: 
-  - dev2
+  - main
   paths: 
    - "application.txt"
 
 jobs:
   build:              # Job name
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
 
     steps:
