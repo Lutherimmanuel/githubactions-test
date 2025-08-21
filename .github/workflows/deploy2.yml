@@ -12,4 +12,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3   # Step 1: Checkout code
-      - run: sudo mkdir luther-test && cd luther-test && sudo touch test.yml
+      - run: cd luther-test && touch test.yml
