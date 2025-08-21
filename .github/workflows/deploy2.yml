@@ -1,34 +1,14 @@
-name: Greeting on variable day
-
+name: Inputs and Outputs Lab
 on:
-  workflow_dispatch:
-    inputs:
-      username:
-        description: "Enter your name"
-        required: true
-        default: "guest"
-
+  push:
+   tags:
+    - "v*"
 jobs:
-  create-user:
-    runs-on: ubuntu-latest
-    outputs:
-      username: ${{ steps.set-username.outputs.username }}
-    steps:
-      - name: Step 1
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-        env:
-          First_Name: sandeep
-          DAY_OF_WEEK: sunday
-          Greeting: Hello
-
-      - name: set-username
-        id: set-username
-        run: echo "username=${{ github.event.inputs.username }}" >> $GITHUB_OUTPUT
-
-  show-user:
-    needs: create-user
+  greet:
     runs-on: ubuntu-latest
     steps:
-      - name: show username
-        run: echo "The username is ${{ needs.create-user.outputs.username }}"
+    - name: checkout code
+      uses: actions/checkout@v3
 
+    - name: run my script
+      run: python test.py
