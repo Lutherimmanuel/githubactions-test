@@ -1,9 +1,7 @@
 name: Demo Workflow 2   # Workflow name
 
-on: 
- push:             # Trigger (runs on push)
-  branches: 
-  - main
+on:
+  workflow_dispatch
 
 jobs:
   build:              # Job name
