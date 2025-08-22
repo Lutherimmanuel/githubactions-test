@@ -1,21 +1,18 @@
-name: Matrix Example 
-on:
-  push:
-  
-jobs:
-  Matrix-test:
-    runs-on: ${{matrix.os}}
-    strategy:
-     matrix:
-      os: [ubuntu-latest,windows-latest]
-      python-version: [3.8,3.9]
-    steps:
-    - name: checkout code
-      uses: actions/checkout@v3
-    - name: setup python
-      uses: actions/setup-python@v5
-      with:
-       python-version: ${{matrix.python-version}} 
+name: Catch API Data
+on: [workflow_dispatch]
 
-    - name: run my script
-      run: python test.py
+jobs:
+  get-api-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API with curl
+        id: callapi
+        run: |
+          response=$(curl -s https://api.github.com/repos/actions/runner/releases/latest)
+          echo "Response: $response"
+
+      - name: call terraform api
+        id: terraform-api
+        run: |
+          response=$(curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest)
+          echo "Response: $response"
